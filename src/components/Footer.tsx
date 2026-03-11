@@ -50,9 +50,9 @@ export default function Footer() {
                   <path d="M4 6h16v12H4V6Z" stroke="currentColor" strokeWidth="2" />
                   <path d="M4 7l8 6 8-6" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" />
                 </svg>
-                contact@exemple.fr
+                mmi.meaux.iut@listes.univ-eiffel.fr
               </a>
-              <a href="tel:0100000000" className="flex items-center gap-2 hover:text-white transition">
+              <a href="tel:0164364415" className="flex items-center gap-2 hover:text-white transition">
                 <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none">
                   <path
                     d="M5 4h4l2 5-3 2c1 3 3 5 6 6l2-3 5 2v4c0 1-1 2-2 2C10 22 2 14 2 6c0-1 1-2 3-2Z"
@@ -61,7 +61,7 @@ export default function Footer() {
                     strokeLinejoin="round"
                   />
                 </svg>
-                01 00 00 00 00
+                01 64 36 44 15
               </a>
 
               <div className="pt-2 text-xs text-white/45">
