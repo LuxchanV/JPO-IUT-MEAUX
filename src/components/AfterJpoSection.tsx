@@ -5,12 +5,12 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 
 const galleryImages = [
-  "/apres-jpo/apres-jpo-1.jpg",
-  "/apres-jpo/apres-jpo-2.jpg",
-  "/apres-jpo/apres-jpo-3.jpg",
-  "/apres-jpo/apres-jpo-4.jpg",
-  "/apres-jpo/apres-jpo-5.jpg",
-  "/apres-jpo/apres-jpo-6.jpg",
+  "/apres-jpo/image1.png",
+  "/apres-jpo/image2.png",
+  "/apres-jpo/image3.png",
+  "/apres-jpo/image4.png",
+  "/apres-jpo/image5.png",
+  "/apres-jpo/image6.png",
 ];
 
 export default function AfterJpoSection() {
