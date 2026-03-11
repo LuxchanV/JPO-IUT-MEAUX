@@ -4,6 +4,7 @@ import Section from "@/components/Section";
 import WhyCards from "@/components/WhyCards";
 import InfoCards from "@/components/InfoCards";
 import ProgramTimeline from "@/components/ProgramTimeline";
+import AfterJpoSection from "@/components/AfterJpoSection";
 import Footer from "@/components/Footer";
 
 export default function Page() {
@@ -34,6 +35,14 @@ export default function Page() {
         subtitle="Un déroulé simple et fluide pour organiser votre visite."
       >
         <ProgramTimeline />
+      </Section>
+
+      <Section
+        id="apres-jpo"
+        title="Après JPO"
+        subtitle="Retrouve les meilleurs moments de la journée en images et en vidéo."
+      >
+        <AfterJpoSection />
       </Section>
 
       <Footer />
