@@ -2,19 +2,53 @@
 
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 
 const galleryImages = [
-  "/image1.png",
-  "/image2.png",
-  "/image3.png",
-  "/image4.png",
-  "/image5.png",
-  "/image6.png",
+  {
+    src: "/image1.png",
+    title: "Accueil des visiteurs",
+    description: "Un aperçu de l’arrivée des visiteurs et de l’ambiance générale de la JPO.",
+  },
+  {
+    src: "/image2.png",
+    title: "Découverte des projets",
+    description: "Présentation des réalisations étudiantes et des projets exposés pendant la journée.",
+  },
+  {
+    src: "/image3.png",
+    title: "Échanges avec les étudiants",
+    description: "Moments de discussion avec les étudiants autour de la formation et de la vie en MMI.",
+  },
+  {
+    src: "/image4.png",
+    title: "Présentation de la formation",
+    description: "Découverte du BUT MMI, des parcours, des compétences et des débouchés.",
+  },
+  {
+    src: "/image5.png",
+    title: "Ambiance dans les locaux",
+    description: "Vue d’ensemble des espaces, des salles et de l’environnement de travail.",
+  },
+  {
+    src: "/image6.png",
+    title: "Temps forts de la journée",
+    description: "Retour sur les moments marquants, les démonstrations et les échanges du jour J.",
+  },
 ];
 
+type GalleryItem = (typeof galleryImages)[number];
+
 export default function AfterJpoSection() {
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [selectedImage, setSelectedImage] = useState<GalleryItem | null>(null);
+
+  const stats = useMemo(
+    () => ({
+      images: galleryImages.length,
+      videos: 1,
+    }),
+    []
+  );
 
   return (
     <>
@@ -41,18 +75,21 @@ export default function AfterJpoSection() {
             </div>
 
             <div className="mt-6 overflow-hidden rounded-3xl border border-slate-200/70 bg-slate-950">
-              <video
-                controls
-                className="h-full w-full object-cover"
-                poster="/apres-jpo/video-poster.jpg"
-              >
-                <source src="/apres-jpo/apres-jpo-video.mp4" type="video/mp4" />
-                Ton navigateur ne supporte pas la vidéo.
-              </video>
+              <div className="relative aspect-video w-full">
+                <iframe
+                  className="absolute inset-0 h-full w-full"
+                  src="https://www.youtube.com/embed/aqMO2w7mpt4"
+                  title="Replay / best of JPO"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                />
+              </div>
             </div>
 
             <p className="mt-4 text-sm leading-relaxed text-slate-600">
-              Ajoute ici la vidéo du jour J, un aftermovie, une présentation ou un montage des meilleurs moments.
+              Retrouve ici le best-of de la Journée Portes Ouvertes : ambiance, échanges, projets présentés
+              et immersion dans l’univers MMI.
             </p>
           </div>
         </motion.div>
@@ -89,17 +126,18 @@ export default function AfterJpoSection() {
               </div>
             </div>
 
-            <p className="mt-5 text-slate-600 leading-relaxed">
-              Exposition des projets, ambiance dans les locaux, échanges avec les étudiants, démos et ateliers.
+            <p className="mt-5 leading-relaxed text-slate-600">
+              Une sélection d’images pour revivre l’ambiance de la JPO : accueil, démonstrations,
+              projets étudiants, visites et moments d’échange.
             </p>
 
             <div className="mt-6 grid grid-cols-2 gap-3">
               <div className="rounded-2xl border border-slate-200/70 bg-slate-50 px-4 py-4">
-                <div className="text-2xl font-black text-slate-950">6+</div>
+                <div className="text-2xl font-black text-slate-950">{stats.images}</div>
                 <div className="mt-1 text-sm font-medium text-slate-600">Photos mises en avant</div>
               </div>
               <div className="rounded-2xl border border-slate-200/70 bg-slate-50 px-4 py-4">
-                <div className="text-2xl font-black text-slate-950">1</div>
+                <div className="text-2xl font-black text-slate-950">{stats.videos}</div>
                 <div className="mt-1 text-sm font-medium text-slate-600">Vidéo best-of</div>
               </div>
             </div>
@@ -109,25 +147,32 @@ export default function AfterJpoSection() {
 
       {/* GALLERY */}
       <div className="mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
-        {galleryImages.map((src, index) => (
+        {galleryImages.map((item, index) => (
           <motion.button
-            key={src}
+            key={item.src}
             type="button"
             initial={{ opacity: 0, y: 18 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.45, delay: index * 0.05 }}
-            onClick={() => setSelectedImage(src)}
-            className="group overflow-hidden rounded-3xl border border-slate-200/70 bg-white shadow-[0_10px_30px_rgba(15,23,42,.06)]"
+            onClick={() => setSelectedImage(item)}
+            className="group overflow-hidden rounded-3xl border border-slate-200/70 bg-white text-left shadow-[0_10px_30px_rgba(15,23,42,.06)] transition hover:shadow-[0_18px_45px_rgba(15,23,42,.10)]"
           >
             <div className="relative aspect-[4/3] overflow-hidden">
               <Image
-                src={src}
-                alt={`Photo JPO ${index + 1}`}
+                src={item.src}
+                alt={item.title}
                 fill
                 className="object-cover transition duration-500 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/50 via-transparent to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
+            </div>
+
+            <div className="p-4">
+              <h4 className="text-base font-black text-slate-950">{item.title}</h4>
+              <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-slate-600">
+                {item.description}
+              </p>
             </div>
           </motion.button>
         ))}
@@ -146,6 +191,7 @@ export default function AfterJpoSection() {
               exit={{ opacity: 0 }}
               aria-label="Fermer"
             />
+
             <motion.div
               className="fixed inset-0 z-[100] flex items-center justify-center p-4"
               initial={{ opacity: 0, scale: 0.98 }}
@@ -162,13 +208,20 @@ export default function AfterJpoSection() {
                   ✕
                 </button>
 
-                <div className="relative aspect-[16/10] w-full">
+                <div className="relative aspect-[16/10] w-full bg-black">
                   <Image
-                    src={selectedImage}
-                    alt="Aperçu photo JPO"
+                    src={selectedImage.src}
+                    alt={selectedImage.title}
                     fill
                     className="object-contain"
                   />
+                </div>
+
+                <div className="border-t border-white/10 bg-slate-950/95 px-6 py-5">
+                  <h4 className="text-xl font-black text-white">{selectedImage.title}</h4>
+                  <p className="mt-2 max-w-3xl text-sm leading-relaxed text-white/70">
+                    {selectedImage.description}
+                  </p>
                 </div>
               </div>
             </motion.div>
