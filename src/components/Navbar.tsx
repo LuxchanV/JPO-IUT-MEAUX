@@ -14,6 +14,7 @@ const LINKS = [
   { label: "Découvrir", href: "#pourquoi" },
   { label: "Infos pratiques", href: "#infos" },
   { label: "Programme", href: "#programme" },
+  { label: "Projets", href: "#projets" },
   { label: "Après JPO", href: "#apres-jpo" },
 ];
 
@@ -41,6 +42,7 @@ export default function Navbar() {
 
   const onLink = (href: string) => {
     setOpen(false);
+
     setTimeout(() => {
       const el = document.querySelector(href);
       if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -58,11 +60,11 @@ export default function Navbar() {
             backdropFilter: blurFilter,
             WebkitBackdropFilter: blurFilter,
           }}
-          className="mx-auto mt-3 max-w-7xl rounded-2xl border border-white/10"
+          className="mx-auto mt-3 max-w-7xl rounded-[24px] border border-white/10"
         >
           <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent" />
 
-          <div className="container h-[78px] flex items-center justify-between">
+          <div className="container flex h-[78px] items-center justify-between">
             <a href="#" className="flex items-center" aria-label="Accueil">
               <Image
                 src="/logoiut.png"
@@ -74,7 +76,7 @@ export default function Navbar() {
               />
             </a>
 
-            <nav className="hidden lg:flex items-center rounded-full border border-white/10 bg-white/5 p-1.5">
+            <nav className="hidden xl:flex items-center rounded-full border border-white/10 bg-white/5 p-1.5">
               {LINKS.map((l) => (
                 <a
                   key={l.href}
@@ -98,7 +100,7 @@ export default function Navbar() {
               <button
                 type="button"
                 onClick={() => setOpen(true)}
-                className="grid h-11 w-11 place-items-center rounded-2xl border border-white/15 bg-white/10 text-white transition hover:bg-white/15 lg:hidden"
+                className="grid h-11 w-11 place-items-center rounded-2xl border border-white/15 bg-white/10 text-white transition hover:bg-white/15 xl:hidden"
                 aria-label="Ouvrir le menu"
               >
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
