@@ -426,8 +426,11 @@ body{
   opacity:.85;
   pointer-events:none;
 }
-.projectBadge{
+.projectCardInner > *{
   position: relative;
+  z-index: 1;
+}
+.projectBadge{
   flex-shrink: 0;
   height: 64px;
   width: 64px;
@@ -440,7 +443,6 @@ body{
   box-shadow: 0 16px 32px rgba(11,45,120,.18);
 }
 .projectKicker{
-  position: relative;
   font-size: 12px;
   font-weight: 800;
   letter-spacing: .16em;
@@ -448,7 +450,6 @@ body{
   color: rgba(15,23,42,.45);
 }
 .projectTitle{
-  position: relative;
   margin-top: 4px;
   font-size: 24px;
   font-weight: 950;
@@ -456,6 +457,8 @@ body{
   color: #0f172a;
 }
 .projectTag{
+  position: relative;
+  z-index: 2;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -467,6 +470,8 @@ body{
   font-weight: 800;
 }
 .projectPrimaryBtn{
+  position: relative;
+  z-index: 2;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -484,6 +489,8 @@ body{
   filter: brightness(1.03);
 }
 .projectSecondaryBtn{
+  position: relative;
+  z-index: 2;
   display: inline-flex;
   align-items: center;
   justify-content: center;

@@ -45,7 +45,6 @@ export default function ProjectsSection() {
   return (
     <div className="projectsShell">
       <div className="grid gap-6 xl:grid-cols-[0.95fr_1.05fr]">
-        {/* LISTE DES PROJETS */}
         <div className="grid gap-4">
           {PROJECTS.map((project, index) => {
             const isActive = activeProject.id === project.id;
@@ -68,6 +67,7 @@ export default function ProjectsSection() {
                     <div className="min-w-0 flex-1">
                       <div className="projectKicker">Projet</div>
                       <h3 className="projectTitle">{project.title}</h3>
+
                       <p className="mt-3 text-sm leading-relaxed text-slate-600 sm:text-[15px]">
                         {project.description}
                       </p>
@@ -107,7 +107,6 @@ export default function ProjectsSection() {
           })}
         </div>
 
-        {/* PREVIEW LIVE */}
         <motion.div
           key={activeProject.id}
           initial={{ opacity: 0, y: 18 }}
