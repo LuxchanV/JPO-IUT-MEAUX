@@ -60,7 +60,7 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 0.16, ease: easeOut }}
             className="mt-10 flex justify-center"
           >
-            <CountdownInline targetISO="2026-02-14T09:30:00+01:00" />
+            <CountdownInline targetISO="2027-02-13T09:30:00+01:00" />
           </motion.div>
 
           <motion.div
@@ -69,7 +69,7 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 0.24, ease: easeOut }}
             className="mt-8 flex flex-wrap justify-center gap-3"
           >
-            <div className="heroMetaChip">Samedi 14 février 2026</div>
+            <div className="heroMetaChip">Samedi 13 février 2027</div>
             <div className="heroMetaChip">9h30 — 17h</div>
             <div className="heroMetaChip">IUT de Meaux • 17 Rue Jablinot, 77100 Meaux</div>
           </motion.div>
