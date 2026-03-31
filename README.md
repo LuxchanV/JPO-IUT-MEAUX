@@ -1,5 +1,4 @@
 
-## Version encore plus simple
 
 ```md
 # JPO - IUT de Meaux
