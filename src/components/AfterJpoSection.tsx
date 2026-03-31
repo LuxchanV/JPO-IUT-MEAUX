@@ -78,7 +78,7 @@ export default function AfterJpoSection() {
               <div className="relative aspect-video w-full">
                 <iframe
                   className="absolute inset-0 h-full w-full"
-                  src="https://www.youtube.com/embed/aqMO2w7mpt4"
+                  src="https://youtu.be/0_ZFDUK0vHU"
                   title="Replay / best of JPO"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   referrerPolicy="strict-origin-when-cross-origin"
